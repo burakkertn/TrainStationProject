@@ -1,0 +1,43 @@
+﻿@using TrainStationProject.Models.Entites
+@model List<Voyage>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+
+
+<h1>Kullanıcı Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+
+        <th>Kalkış İstasyon Adı</th>
+        <th>Varış İstasyon Adı</th>
+        <th>Kalkış Saati</th>
+        <th>Varış Saati</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            @{
+                sayac = sayac + 1;
+            }
+            <td>@sayac</td>
+            <td>@item.DepartureStation</td>
+            <td>@item.ArrivalStation</td>
+            <td>@item.DepartureTime</td>
+            <td>@item.ArrivalTime</td>
+            <td><a href="/Station/DeleteStation/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Station/UpdateStation/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+
+        </tr>
+    }
+</table>
+
+
+<a href="/Voyage/AddVoyage/" class="btn btn-outline-primary">Yeni Kullanıcı Kaydı</a>

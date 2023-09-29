@@ -1,0 +1,29 @@
+﻿@model TrainStationProject.Models.Entites.Station
+@{
+    ViewData["Title"] = "AddStation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Takım Arkadaşı Kaydı</h4>
+
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName1">İstasyon İsmi</label>
+                    <input type="text" class="form-control" id="exampleInputName1" asp-for="StationName">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">İstasyon Adresi</label>
+                    <input type="text" class="form-control" asp-for="StationAddress">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">İstasyon Konumu</label>
+                    <input type="text" class="form-control" asp-for="StationLocation">
+                </div>  
+                <br />
+                <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

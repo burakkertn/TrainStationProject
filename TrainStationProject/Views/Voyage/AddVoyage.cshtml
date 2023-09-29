@@ -1,0 +1,44 @@
+﻿@model TrainStationProject.Models.Entites.Voyage
+@{
+    ViewData["Title"] = "AddVoyage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Takım Arkadaşı Kaydı</h4>
+
+            <form class="forms-sample" method="post">
+
+                <label for="coachSelect">Teknik Direktör Seç:</label>
+                <select id="coachSelect" name="StationId" class="form-control">
+
+                    <option value="">Seçer misin ki lütfen? </option>
+                    @foreach (var item in ViewBag.StationList)
+                    {
+                        <option value="@item.StationId">@item.StationName</option>
+                    }
+                </select>
+                <br />
+
+
+
+                <div class="form-group">
+                    <label for="exampleInputEmail3">İstasyon Adresi</label>
+                    <input type="text" class="form-control" asp-for="ArrivalStation">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">İstasyon Konumu</label>
+                    <input type="text" class="form-control" asp-for="DepartureTime">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">İstasyon Konumu</label>
+                    <input type="text" class="form-control" asp-for="ArrivalTime">
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

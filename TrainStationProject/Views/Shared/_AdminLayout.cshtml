@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="~/sneat-1.0.0/assets/"
+  data-template="vertical-menu-template-free">
+@await Html.PartialAsync("~/Views/Admin/PartialHeader.cshtml")
+ <body>
+ <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+                    <div class="menu-inner-shadow"></div>
+@await Html.PartialAsync("~/Views/Admin/PartialNavBar.cshtml")
+        </aside>
+        <div class="layout-page">
+
+          <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+           @RenderBody()
+            </div>
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          </div>
+      </div>
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+@await Html.PartialAsync("~/Views/Admin/ParitalJs.cshtml")
+  </body>
+</html>
+
