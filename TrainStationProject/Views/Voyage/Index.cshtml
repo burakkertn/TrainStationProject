@@ -3,11 +3,12 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    int sayac = 0;
+    var stations = TempData["Stations"] as List<Station>;
+    int count = 0;
 }
 
 
-<h1>Kullanıcı Listesi</h1>
+<h1>Sefer Listesi</h1>
 
 <table class="table table-bordered">
     <tr>
@@ -23,17 +24,21 @@
     </tr>
     @foreach (var item in Model)
     {
+        var DepatureStation = stations.FirstOrDefault(s => s.Id == item.DepartureStationId);
+        var ArrivalStation = stations.FirstOrDefault(s => s.Id == item.ArrivalStationId);
         <tr>
             @{
-                sayac = sayac + 1;
+                count = count + 1;
             }
-            <td>@sayac</td>
-            <td>@item.DepartureStation</td>
-            <td>@item.ArrivalStation</td>
+            <td>@count</td>
+
+
+            <td>@DepatureStation.StationName</td>
+            <td>@ArrivalStation.StationName</td>
             <td>@item.DepartureTime</td>
             <td>@item.ArrivalTime</td>
-            <td><a href="/Station/DeleteStation/@item.Id" class="btn btn-outline-danger">Sil</a></td>
-            <td><a href="/Station/UpdateStation/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="/Voyage/DeleteVoyage/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Voyage/UpdateVoyage/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
 
         </tr>
     }

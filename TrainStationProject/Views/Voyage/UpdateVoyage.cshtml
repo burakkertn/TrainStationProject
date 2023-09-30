@@ -1,0 +1,48 @@
+﻿@model TrainStationProject.Models.Entites.Voyage
+@{
+    ViewData["Title"] = "UpdateVoyage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h1>Kulüp Güncelleme</h1>
+
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+   
+    <select id="stationSelect" name="DepartureStationId" class="form-control">
+        <option value="">Kalkış İstasyonu Seç </option>
+        @foreach (var item in ViewBag.StationList)
+        {
+            <!option value="@item.Id" @(item.Id == Model.DepartureStationId ? "selected" : "")>@item.StationName</!option>
+        }
+    </select>
+    <br />
+    <select id="stationSelect1" name="ArrivalStationId" class="form-control">
+        <option value="">Varış İstasyonu Seç </option>
+        @foreach (var item in ViewBag.StationList)
+        {
+            <!option value="@item.Id" @(item.Id == Model.ArrivalStationId ? "selected" : "")>@item.StationName</!option>
+        }
+    </select>
+
+    <label>Kalkış Zamanı Güncelle</label>
+    <input type="datetime" class="form-control border" name="DepartureTime" value="@Model.DepartureTime" />
+    <br />
+    <label>Varış Zamanı Güncelle</label>
+    <input type="datetime" class="form-control border" name="ArrivalTime" value="@Model.ArrivalTime" />
+    <br />
+
+    <br />
+
+    <button class="btn btn-outline-info">Kulübü Güncelle</button>
+
+
+    <div>
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <span>@ViewBag.Error</span>
+        }
+    </div>
+
+</form>

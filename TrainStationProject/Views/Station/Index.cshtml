@@ -3,38 +3,57 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    int sayac = 0;
+    int count = 0;
 }
 
-<h1>Kullanıcı Listesi</h1>
+
+<h1>İstasyon Listesi</h1>
 
 <table class="table table-bordered">
-    <tr>
-        <th>#</th>
-
-        <th>İstasyon Adı</th>
-        <th>İstasyon Adresi</th>
-        <th>İstasyon Konumu</th>
-        <th>Sil</th>
-        <th>Düzenle</th>
-
-    </tr>
-    @foreach (var item in Model)
-    {
+    <thead>
         <tr>
-            @{
-                sayac = sayac + 1;
-            }
-            <td>@sayac</td>
-            <td>@item.StationName</td>
-            <td>@item.StationAddress</td>
-            <td>@item.StationLocation</td>
-            <td><a href="/Station/DeleteStation/@item.Id" class="btn btn-outline-danger">Sil</a></td>
-            <td><a href="/Station/UpdateStation/@item.Id" class="btn btn-outline-success">Güncelle</a></td>
-
+            <th>#</th>
+            <th>İstasyon Adı</th>
+            <th>İstasyon Adresi</th>
+            <th>İstasyon Konumu</th>
+            <th>Sil</th>
+            <th>Düzenle</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.StationName</td>
+                <td>@item.StationAddress</td>
+                <td>@item.StationLocation</td>
+                <td>
+                    <a href="#" class="btn btn-outline-danger delete-button" data-station-id="@item.Id">Sil</a>
+                </td>
+                <td>
+                    <a href="/Station/UpdateStation/@item.Id" class="btn btn-outline-success">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
+<a href="/Station/AddStation/" class="btn btn-outline-primary">Yeni İstasyon Ekle</a>
 
-<a href="/Station/AddStation/" class="btn btn-outline-primary">Yeni Kullanıcı Kaydı</a>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.delete-button').click(function () {
+            var stationId = $(this).data('station-id');
+            var confirmation = confirm("Bu istasyonu silerseniz mevcutta bulunan bu istasyona bağlı seferleride sileceksiniz Oynaylıyor musnuz?");
+
+            if (confirmation) {
+                window.location.href = "/Station/DeleteStation/" + stationId;
+            } else {
+                return false;
+            }
+        });
+    });
+</script>

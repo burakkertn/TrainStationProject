@@ -48,7 +48,6 @@ namespace TrainStationProject.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DepartureStationId = table.Column<int>(type: "int", nullable: false),
                     ArrivalStationId = table.Column<int>(type: "int", nullable: false),
-                    StationId = table.Column<int>(type: "int", nullable: false),
                     DepartureTime = table.Column<DateTime>(type: "DateTime2", nullable: false),
                     ArrivalTime = table.Column<DateTime>(type: "DateTime2", nullable: false)
                 },
@@ -65,12 +64,6 @@ namespace TrainStationProject.Migrations
                         column: x => x.DepartureStationId,
                         principalTable: "Stations",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Voyages_Stations_StationId",
-                        column: x => x.StationId,
-                        principalTable: "Stations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -82,11 +75,6 @@ namespace TrainStationProject.Migrations
                 name: "IX_Voyages_DepartureStationId",
                 table: "Voyages",
                 column: "DepartureStationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Voyages_StationId",
-                table: "Voyages",
-                column: "StationId");
         }
 
         /// <inheritdoc />

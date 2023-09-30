@@ -4,5 +4,8 @@ namespace TrainStationProject.Abstract
 {
     public interface IStationDal : IGenericDal<Station>
     {
+
     }
 }
+
+

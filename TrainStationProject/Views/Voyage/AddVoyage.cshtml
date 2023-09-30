@@ -2,8 +2,8 @@
 @{
     ViewData["Title"] = "AddVoyage";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
 
+}
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
@@ -11,34 +11,58 @@
 
             <form class="forms-sample" method="post">
 
-                <label for="coachSelect">Teknik Direktör Seç:</label>
-                <select id="coachSelect" name="StationId" class="form-control">
+                <label for="stationSelect">Gidiş İstasyonu:</label>
+                <select id="stationSelect" name="DepartureStationId" class="form-control">
 
-                    <option value="">Seçer misin ki lütfen? </option>
+                    <option value="">Kalkış İstasyonu Seç: </option>
                     @foreach (var item in ViewBag.StationList)
                     {
-                        <option value="@item.StationId">@item.StationName</option>
+                        <option value="@item.Id">@item.StationName</option>
                     }
                 </select>
                 <br />
 
+                <label for="stationSelect1">Varış İstasyonu:</label>
+                <select id="stationSelect" name="ArrivalStationId" class="form-control">
 
+                    <option value="">Kalkış İstasyonu Seç: </option>
+                    @foreach (var item in ViewBag.StationList)
+                    {
+                        <option value="@item.Id">@item.StationName</option>
+                    }
+                </select>
+                <br />
 
-                <div class="form-group">
-                    <label for="exampleInputEmail3">İstasyon Adresi</label>
-                    <input type="text" class="form-control" asp-for="ArrivalStation">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">İstasyon Konumu</label>
-                    <input type="text" class="form-control" asp-for="DepartureTime">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">İstasyon Konumu</label>
-                    <input type="text" class="form-control" asp-for="ArrivalTime">
-                </div>
+                Kalkış Zamanı: <input class="form-control" asp-for="DepartureTime" asp-format="{0:yyyy-MM-ddTHH:mm}" />
+
+                Varış Zamanı: <input class="form-control" asp-for="ArrivalTime" asp-format="{0:yyyy-MM-ddTHH:mm}" />
+                <br />
                 <br />
                 <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+
+
+                <div>
+                    @if (!string.IsNullOrEmpty(ViewBag.Error))
+                    {
+                        <span>@ViewBag.Error</span>
+                    }
+                </div>
+
+
             </form>
+            <script>
+                function submitForm() {
+                    var selectedStationID = document.getElementById('stationSelect').value;
+                    document.getElementsByName('selectedStation')[0].value = selectedStationID;
+                }
+            </script>
+            <script>
+                function submitForm() {
+                    var selectedStationID1 = document.getElementById('stationSelect1').value;
+                    document.getElementsByName('selectedStation1')[0].value = selectedStationID1;
+                }
+            </script>
+
         </div>
     </div>
 </div>

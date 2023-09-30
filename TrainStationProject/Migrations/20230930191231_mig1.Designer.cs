@@ -12,7 +12,7 @@ using TrainStationProject.Models.Context;
 namespace TrainStationProject.Migrations
 {
     [DbContext(typeof(StationContext))]
-    [Migration("20230929224308_mig1")]
+    [Migration("20230930191231_mig1")]
     partial class mig1
     {
         /// <inheritdoc />
@@ -91,16 +91,11 @@ namespace TrainStationProject.Migrations
                     b.Property<DateTime>("DepartureTime")
                         .HasColumnType("DateTime2");
 
-                    b.Property<int>("StationId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ArrivalStationId");
 
                     b.HasIndex("DepartureStationId");
-
-                    b.HasIndex("StationId");
 
                     b.ToTable("Voyages");
                 });
@@ -117,17 +112,9 @@ namespace TrainStationProject.Migrations
                         .HasForeignKey("DepartureStationId")
                         .IsRequired();
 
-                    b.HasOne("TrainStationProject.Models.Entites.Station", "Station")
-                        .WithMany()
-                        .HasForeignKey("StationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("ArrivalStation");
 
                     b.Navigation("DepartureStation");
-
-                    b.Navigation("Station");
                 });
 
             modelBuilder.Entity("TrainStationProject.Models.Entites.Station", b =>

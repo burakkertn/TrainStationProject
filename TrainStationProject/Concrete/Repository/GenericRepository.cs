@@ -1,4 +1,5 @@
-﻿using TrainStationProject.Abstract;
+﻿using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
+using TrainStationProject.Abstract;
 using TrainStationProject.Models.Context;
 
 namespace TrainStationProject.Concrete.Repository
@@ -17,9 +18,7 @@ namespace TrainStationProject.Concrete.Repository
             using var c = new StationContext();
             return c.Set<T>().Find(id);
         }
-
-    
-
+                      
         public List<T> GetListAll()
         {
             using var c = new StationContext();
