@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TrainStationProject.Abstract;
 using TrainStationProject.Models.Entites;
 
 namespace TrainStationProject.Controllers
 {
-	public class VoyageController : Controller
+
+    public class VoyageController : Controller
 	{
 		private readonly IVoyageDal _voyageDal;
 		private readonly IStationDal _stationDal;

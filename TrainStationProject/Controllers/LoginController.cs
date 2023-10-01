@@ -34,7 +34,7 @@ namespace TrainStationProject.Controllers
 
 			};
 			_userDal.Insert(user);
-			return RedirectToAction("Index", "User");
+			return RedirectToAction("SignIn", "Login");
 		}
 		[HttpGet]
 		public IActionResult SignIn()
@@ -53,7 +53,7 @@ namespace TrainStationProject.Controllers
 					if (value.Password == p.Password)
 					{
 
-					return	RedirectToAction("SignIn", "Login");
+					return	RedirectToAction("Index", "Voyage");
 					}
 					ViewBag.Error = "Şifre Hatalı";
 					return View();

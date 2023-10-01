@@ -13,6 +13,8 @@ builder.Services.AddScoped<IUserDal, EfUserDal>();
 builder.Services.AddScoped<IStationDal, EfStationDal>();
 builder.Services.AddScoped<IVoyageDal, EfVoyageDal>();
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,7 +29,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(
