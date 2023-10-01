@@ -48,9 +48,9 @@ Tren seferlerine ait kalkış ve varış saatleri kaydedilebilir.
 
 ##Yetkileye Not:
 
-Revize istenilirse son teslim tarihine kadar yaparım.
+Revize istenilirse son teslim tarihine kadar yapabilirim.
 
-(Taskta istenmediği için eklemediklerim)
+(Projede lazım olduğunu görüp Taskte istenmediği için eklemediklerim)
 
 -Role
 -Identity
