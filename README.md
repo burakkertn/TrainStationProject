@@ -11,7 +11,7 @@
 
 https://github.com/burakkertn/TrainStationProject/assets/99614754/3e94052d-9470-4193-ada2-dcec743d19c2
 
-
+(UI'da hazır Template kullanılmıştır.)
 
 # Veritabanı Tasarımı
 
