@@ -46,5 +46,13 @@ Tren seferlerine ait kalkış ve varış saatleri kaydedilebilir.
 
 ![b](https://github.com/burakkertn/TrainStationProject/assets/99614754/e9a54a3c-1693-4cba-8d39-d49ddbcd036d)
 
+##Yetkileye Not:
 
+Revize istenilirse son teslim tarihine kadar yaparım.
 
+(Taskta istenmediği için eklemediklerim)
+
+-Role
+-Identity
+-Authorization
+-Authentication
