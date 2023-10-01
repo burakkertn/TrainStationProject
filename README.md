@@ -1,7 +1,7 @@
 #TrainStationProject
 <h1>kullanılan Teknolojiler</h1>
 <p>-.NET 7.0</p>
-<p>-Repository</p>
+<p>-Repository Pattern</p>
 <p>-MsSql</p>
 <p>-Entity Framework Core</p>
 <p>-Code First</p>
