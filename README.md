@@ -9,7 +9,9 @@
 
 # Video
 
-https://github.com/burakkertn/TrainStationProject/assets/99614754/3e94052d-9470-4193-ada2-dcec743d19c2
+
+https://github.com/burakkertn/TrainStationProject/assets/99614754/e7f6e9f4-69f0-4db9-935b-5ddd9219fb05
+
 
 (UI'da hazır Template kullanılmıştır.)
 
